@@ -28,9 +28,9 @@ img{
 //varriables
 
 // font-size
-$small : 0.875rem;
-$medium: 1rem;
-$large: 2.125rem;
+$small : 1rem;
+$medium: 1.125rem;
+$large: 2.25rem;
 
 //colors-primary
 $orange:  hsl(26, 100%, 55%);
@@ -63,6 +63,9 @@ $black: hsl(0, 0%, 0%);//with 75% opacity for lightbox background
 }
 .jc-sa{
     justify-content: space-around;
+}
+.jc-se{
+    justify-content: space-evenly;
 }
 .ai-c{
     align-items: center;
