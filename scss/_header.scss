@@ -1,0 +1,43 @@
+//common css
+.nav-wrap{
+    .nav-links{
+        @include font(400, $small, $dark-grayish-blue);
+    }
+    .nav-links ul li{
+        list-style-type: none;
+        margin-left: 2.125rem;
+        cursor: pointer;
+    }
+}
+
+//for desktop
+@media only screen and (min-width: 67.5625rem){
+    nav{
+        padding: 1.75rem 10.3125rem 0 10.3125rem;
+    }
+    .nav-wrap{
+        padding-bottom: 2rem;
+        border-bottom: 1px solid $light-grayish-blue;
+        .nav-links{
+            margin-left: 1.375rem;
+            //it is 3.5 but li already has 2.125 from below so i divided it
+        }
+        .nav-links ul li{
+            margin-left: 2.125rem;
+        }
+        .nav-buttons{
+            margin-left: auto;
+        }
+        .nav-buttons .profile img{
+            max-height: 3.125rem;
+            width: auto;
+            margin-left: 2.875rem;
+        }
+    }
+}
+
+//for mobile
+
+@media only screen and (max-width: 67.5rem){
+
+}
