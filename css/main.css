@@ -6,8 +6,8 @@ html {
 }
 
 *, *::after, *::before {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -26,6 +26,13 @@ img {
   display: flex;
 }
 
+.fd-c {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .grid {
   display: -ms-grid;
   display: grid;
@@ -38,8 +45,9 @@ img {
 }
 
 .jc-sb {
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .jc-sa {
@@ -66,6 +74,54 @@ img {
   cursor: pointer;
 }
 
+#item-company {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: #ff7d1a;
+}
+
+#item-name {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-weight: 700;
+  font-size: 2.125rem;
+  color: #14151A;
+  line-height: 1.2;
+}
+
+#item-description {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #68707d;
+}
+
+.item-price #current-price h3 {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #14151A;
+}
+
+#discount {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #ff7d1a;
+  padding: 0.375rem 0.5rem;
+  background: #ffede0;
+  border-radius: 0.1875rem;
+}
+
+#originalPrice {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: #b6bcc8;
+  -webkit-text-decoration-line: line-through;
+          text-decoration-line: line-through;
+}
+
 @media only screen and (min-width: 67.5625rem) {
   nav {
     padding: 1.75rem 10.3125rem 0 10.3125rem;
@@ -87,6 +143,40 @@ img {
     max-height: 3.125rem;
     width: auto;
     margin-left: 2.875rem;
+  }
+  .item-section {
+    padding: 5.625rem 13.25rem;
+  }
+  .item-section .item-carasole {
+    margin-right: 8rem;
+  }
+  .item-section .item-img {
+    margin-bottom: 1.875rem;
+  }
+  .item-section .item-img img {
+    max-width: 27.625rem;
+    height: auto;
+    border-radius: 0.5625rem;
+  }
+  .item-section .thumbnail-item-img {
+    max-width: 27.625rem;
+  }
+  .item-section .thumbnail-item-img img {
+    max-width: 5.5rem;
+    height: auto;
+    border-radius: 0.625rem;
+  }
+  #item-name {
+    margin: 1.5rem 0 2.5rem 0;
+  }
+  .item-price {
+    margin-top: 2.25rem;
+  }
+  .item-price #current-price {
+    margin-bottom: 1.125rem;
+  }
+  .item-price #current-price h3 {
+    margin-right: 1rem;
   }
 }
 /*# sourceMappingURL=main.css.map */

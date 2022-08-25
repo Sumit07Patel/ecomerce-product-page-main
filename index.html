@@ -40,26 +40,37 @@
       </div>
     </div>
   </nav>
-  <section class="item-section">
+  <section class="item-section flex">
     <div class="item-carasole">
+      <div class="item-img">
+        <img src="images/image-product-1.jpg" alt="">
+      </div>
+      <div class="thumbnail-item-img flex jc-sb">
+        <img src="images/image-product-1-thumbnail.jpg" alt="">
+        <img src="images/image-product-2-thumbnail.jpg" alt="">
+        <img src="images/image-product-3-thumbnail.jpg" alt="">
+        <img src="images/image-product-4-thumbnail.jpg" alt="">
+      </div>
     </div>
-    <div class="item-details">
-      <p id="item-company">Sneaker Company</p>
+    <div class="item-details flex fd-c jc-c">
+      <p id="item-company">SNEAKER COMPANY</p>
       <h1 id="item-name">Fall Limited Edition Sneakers</h1>
       <p id="item-description">
         These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.
       </p>
       <div class="item-price">
-        <div id="current-price">
+        <div id="current-price" class="flex">
           <h3>$125.00</h3>
           <div id="discount">50%</div>
         </div>
-        <p id="original-price">$250.00</p>
+        <p id="originalPrice">$250.00</p>
       </div>
-      <div class="cart-section">
-        <img id="minus-item-numbers" src="images/icon-minus.svg" alt="">
-        <p id="numberOfItems">0</p>
-        <img id="plus-item-numbers" src="images/icon-plus.svg" alt="">
+      <div class="cart-buttons">
+        <button id="numberOfItemButton">
+          <img id="minus-item-numbers" src="images/icon-minus.svg" alt="">
+          <p id="numberOfItems">0</p>
+          <img id="plus-item-numbers" src="images/icon-plus.svg" alt="">
+        </button>
         <button id="addToCartButton">
           <img src="images/icon-cart.svg" alt="">
           <p>Add to cart</p>
