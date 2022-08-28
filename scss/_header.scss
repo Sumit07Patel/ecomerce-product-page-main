@@ -3,6 +3,7 @@
 //
 header{
     overflow: hidden;
+   
 }
 .nav-wrap{
     .nav-links{
@@ -15,8 +16,8 @@ header{
     .nav-buttons{
         margin-left: auto;
     }
-    .nav-buttons .cart img{
-        color: $very-dark-blue;
+    .nav-buttons .cart svg path{
+        fill: $dark-grayish-blue;
     }
 }
 // for item-section 
@@ -44,9 +45,12 @@ header{
     box-shadow: 0px 14px 35px -12px rgba(255, 125, 27, 0.6);
     border-radius: 9px;
     color: white;
-    img{
+    svg{
         margin-right: 1rem;
         
+    }
+    svg path{
+        fill: white;
     }
     p{
         @include font(700,$small,white)
@@ -230,7 +234,23 @@ header{
             display: none;
         }
         .item-img{
-            display: relative;
+            position: relative;
+        }
+        .previous-button, .next-button{
+            position: absolute;
+            top: 50%;
+            bottom: auto;
+            height: 2.5rem;
+            width: 2.5rem;
+            background: white;
+            cursor: pointer;
+            border-radius: 100%
+        }
+        .previous-button{
+            left: 1rem
+        }
+        .next-button{
+            right: 1rem
         }
         //for item details section
         #item-company{

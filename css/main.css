@@ -87,8 +87,8 @@ header {
   margin-left: auto;
 }
 
-.nav-wrap .nav-buttons .cart img {
-  color: #14151A;
+.nav-wrap .nav-buttons .cart svg path {
+  fill: #68707d;
 }
 
 #discount {
@@ -128,8 +128,12 @@ header {
   color: white;
 }
 
-#addToCartButton img {
+#addToCartButton svg {
   margin-right: 1rem;
+}
+
+#addToCartButton svg path {
+  fill: white;
 }
 
 #addToCartButton p {
@@ -329,7 +333,23 @@ header {
     display: none;
   }
   .item-section .item-img {
-    display: relative;
+    position: relative;
+  }
+  .item-section .previous-button, .item-section .next-button {
+    position: absolute;
+    top: 50%;
+    bottom: auto;
+    height: 2.5rem;
+    width: 2.5rem;
+    background: white;
+    cursor: pointer;
+    border-radius: 100%;
+  }
+  .item-section .previous-button {
+    left: 1rem;
+  }
+  .item-section .next-button {
+    right: 1rem;
   }
   .item-section #item-company {
     font-family: 'Kumbh Sans', sans-serif;
