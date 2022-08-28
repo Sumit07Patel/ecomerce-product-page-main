@@ -15,6 +15,9 @@ header{
     .nav-buttons{
         margin-left: auto;
     }
+    .nav-buttons .cart img{
+        color: $very-dark-blue;
+    }
 }
 // for item-section 
 
@@ -39,13 +42,14 @@ header{
 #addToCartButton{
     background: $orange;
     box-shadow: 0px 14px 35px -12px rgba(255, 125, 27, 0.6);
-border-radius: 9px;
+    border-radius: 9px;
+    color: white;
     img{
         margin-right: 1rem;
         
     }
     p{
-        color: white;
+        @include font(700,$small,white)
     }
 
 }
@@ -86,6 +90,9 @@ border-radius: 9px;
         // .item-carasole{
         //     // margin-right: 8rem;
         // }
+        .previous-button,.next-button{
+            display: none;
+        }
         .item-img{
             margin-bottom: 1.875rem;
         }
@@ -135,8 +142,9 @@ border-radius: 9px;
     }
     #addToCartButton{
         flex-grow: 2;
-
+        color: white;
     }
+    
 
 
 }
@@ -220,6 +228,9 @@ border-radius: 9px;
         }
         .thumbnail-item-img{
             display: none;
+        }
+        .item-img{
+            display: relative;
         }
         //for item details section
         #item-company{
