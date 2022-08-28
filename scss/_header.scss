@@ -1,34 +1,25 @@
 //common css
 //
 //
+header{
+    overflow: hidden;
+}
 .nav-wrap{
     .nav-links{
         @include font(400, $small, $dark-grayish-blue);
     }
     .nav-links ul li{
         list-style-type: none;
-        margin-left: 2.125rem;
         cursor: pointer;
+    }
+    .nav-buttons{
+        margin-left: auto;
     }
 }
 // for item-section 
-#item-company{
-    @include font(700,$small,$orange);
-}
-#item-name{
-    @include font(700,$large,$very-dark-blue);
-    line-height: 1.2;
-}
-#item-description{
-    @include font(500,$small,$dark-grayish-blue)
-}
-.item-price{
-    #current-price h3{
-        @include font(700,1.5rem,$very-dark-blue);
-    }
-}
+
 #discount{
-    @include font(500,$small,$orange);
+    @include font(700,$small,$dark-orange);
     padding: 0.375rem 0.5rem;
     background: $pale-orange;
     border-radius: 0.1875rem;
@@ -36,6 +27,14 @@
 #originalPrice{
     @include font(700,$small,$grayish-blue);
     text-decoration-line: line-through;
+}
+.cart-buttons{
+    width: 100%;
+    button{
+        height: 3.5rem;
+        border: none;
+        border-radius: 0.625rem;
+    }
 }
 #addToCartButton{
     background: $orange;
@@ -53,6 +52,7 @@ border-radius: 9px;
 #numberOfItem{
     background: $very-light-grayish-blue;
 }
+
 //for desktop
 //
 //
@@ -63,15 +63,15 @@ border-radius: 9px;
     .nav-wrap{
         padding-bottom: 2rem;
         border-bottom: 1px solid $light-grayish-blue;
+        .hamburger-menu{
+            display: none;
+        }
         .nav-links{
             margin-left: 1.375rem;
             //it is 3.5 but li already has 2.125 from below so i divided it
         }
         .nav-links ul li{
             margin-left: 2.125rem;
-        }
-        .nav-buttons{
-            margin-left: auto;
         }
         .nav-buttons .profile img{
             max-height: 3.125rem;
@@ -103,8 +103,17 @@ border-radius: 9px;
             border-radius: 0.625rem;
         }
     }
+    #item-company{
+        @include font(700,$small,$dark-orange);
+        letter-spacing: 0.15rem;
+    }
     #item-name{
         margin: 1.5rem 0 2.5rem 0;
+        @include font(700,$large,$very-dark-blue);
+        line-height: 1.2;
+    }
+    #item-description{
+        @include font(500,$small,$dark-grayish-blue);
     }
     .item-price{
         margin-top:2.25rem;
@@ -112,18 +121,11 @@ border-radius: 9px;
             margin-bottom: 1.125rem
         }
         #current-price h3{
+            @include font(700,1.5rem,$very-dark-blue);
             margin-right: 1rem;
         }
         #originalPrice{
             margin-bottom: 2.5rem;
-        }
-    }
-    .cart-buttons{
-        width: 100%;
-        button{
-            height: 3.5rem;
-            border: none;
-            border-radius: 0.625rem;
         }
     }
     #numberOfItem{
@@ -144,5 +146,120 @@ border-radius: 9px;
 //
 
 @media only screen and (max-width: 67.5rem){
+    //for mobile nav bar
+    nav{
+        padding: 1.5rem;
+        .hamburger-menu{
+            margin-right: 1rem;
+            cursor: pointer;
+            z-index: 2;
+        }
+        .hamburger-menu .hamburger-bar{
+            height: 0.1875rem;
+            width: 1rem;
+            background: $dark-grayish-blue;
+            margin-bottom: 0.1875rem;
+            transition: all 0.5s ease;
+        }
+        .hamburger-menu .hamburger-bar:last-child{
+            margin-bottom: 0;
+        }
+        .hamburger-bar:nth-child(2).close-menu{
+            display: none;
+        }
+        .hamburger-bar:first-child.close-menu{
+            transform: rotate(45deg) translatex(4.5px);
+        }
+        .hamburger-bar:last-child.close-menu{
+            transform:  rotate(-45deg) translatex(3.5px);
+        }
+        .nav-links{
+            position: fixed;
+            top: 0;
+            left: -150%;
+            height: 100vh;
+            width: 70vw;
+            padding: 6rem 1.5rem;
+            background: white;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        .nav-links.show{
+            left: 0;
+        }
+        .open-mobile-nav-background.show{
+            display: block;
+        }
+        .nav-links ul{
+            flex-direction: column;
+        }
+        .nav-links ul li{
+            @include font(700,$medium-mobile,$very-dark-blue);
+            margin-bottom: 2rem;
+        }
+        .open-mobile-nav-background{
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            width: 100vw;
+            background: black;
+            opacity: 0.3;
+        }
+        .nav-buttons .profile img{
+            max-width: 1.5rem;
+            margin-left: 1.375rem;
+        }
+
+    }
+    //for mobile item section
+    .item-section{
+        .item-img img{
+            max-width: 99.99vw;
+        }
+        .thumbnail-item-img{
+            display: none;
+        }
+        //for item details section
+        #item-company{
+            @include font(700,$smallest-mobile,$dark-orange);
+            letter-spacing: 0.1rem;
+        }
+        #item-name{
+            width: 70vw;
+            line-height: 1.15;
+            @include font(700, $largest-mobile, $very-dark-blue);
+            margin: 1.25rem 0 1.625rem 0;
+        }
+        #item-description{
+            @include font(500,$medium-mobile,$dark-grayish-blue)
+        }
+        .item-price{
+            display: flex;
+            align-items: center;
+            margin: 2rem 0 1.625rem 0;
+            #originalPrice{
+                @include font(700,$medium-mobile,$grayish-blue);
+                margin-left: auto;
+            }
+            #discount{
+                padding: 0.375rem initial;
+                font-size: $medium-mobile;
+            }
+            #current-price h3{
+                @include font(700,$largest-mobile,$very-dark-blue);
+                margin-right: 1rem;
+            }
+        }
+        .item-details{
+            padding: 1.5rem;
+        }
+        .cart-buttons{
+            flex-direction: column;
+            row-gap: 1rem;
+        }
+    }
+    
 
 }
