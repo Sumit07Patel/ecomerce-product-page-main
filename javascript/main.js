@@ -31,7 +31,7 @@ caroselSlide.style.transform = 'translateX('+(-size*counter)+'px)';
 
 //button listeners
 nextButton.addEventListener('click', ()=>{
-    if(counter >= caroselImage.length) return;
+    if(counter >= caroselImg.length) return;
     caroselSlide.classList.add('transition');
     counter++;
     caroselSlide.style.transform = 'translateX('+(-size*counter)+'px)';
