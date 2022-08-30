@@ -244,13 +244,14 @@ header{
             width: 2.5rem;
             background: white;
             cursor: pointer;
-            border-radius: 100%
+            border-radius: 100%;
+            z-index: 1;
         }
         .previous-button{
-            left: 1rem
+            left: 1rem;
         }
         .next-button{
-            right: 1rem
+            right: 1rem;
         }
         //for item details section
         #item-company{
@@ -291,6 +292,26 @@ header{
             row-gap: 1rem;
         }
     }
+
+    //this are the basic css for layout now here are css for functional things note that nav is done above here are css for carosel etc
+    .item-section{
+        overflow: hidden;
+        .item-img-carosel {
+            display: flex;
+            // transition 
+            max-width: 100vw;
+        }
+        .item-img-carosel.transition{
+            transition: all 0.4s ease-in-out;
+        }
+        .item-img-carosel img{
+            display: flex;
+        }
+    }
     
 
 }
+
+
+
+
