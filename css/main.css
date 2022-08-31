@@ -18,6 +18,7 @@ body {
 
 img {
   display: block;
+  cursor: pointer;
 }
 
 .flex {
@@ -248,6 +249,9 @@ header {
             flex-grow: 2;
     color: white;
   }
+  .item-section .item-img {
+    overflow: hidden;
+  }
 }
 
 @media only screen and (max-width: 67.5rem) {
@@ -425,9 +429,8 @@ header {
     transition: all 0.4s ease-in-out;
   }
   .item-section .item-img-carosel img {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    max-width: 100vw;
+    max-height: inherit;
   }
 }
 /*# sourceMappingURL=main.css.map */
