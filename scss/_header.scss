@@ -149,6 +149,19 @@ header{
         color: white;
     }
 
+    //desktop carosel
+    .desktop-carosel{
+        position: fixed;
+        top: 0;
+        left: 0;
+        .item-img-carosel{
+            max-width: 40vw;
+        }
+        .item-img-carosel img{
+            max-width: 100%;
+        }
+    }
+
     //for desktop functionalities
 
     .item-section{
@@ -172,7 +185,7 @@ header{
         .hamburger-menu{
             margin-right: 1rem;
             cursor: pointer;
-            z-index: 2;
+            z-index: 3;
         }
         .hamburger-menu .hamburger-bar{
             height: 0.1875rem;
@@ -197,18 +210,15 @@ header{
             position: fixed;
             top: 0;
             left: -150%;
-            height: 100vh;
+            height: 100%;
             width: 70vw;
             padding: 6rem 1.5rem;
             background: white;
-            z-index: 1;
+            z-index: 2;
             transition: all 0.3s ease;
         }
         .nav-links.show{
             left: 0;
-        }
-        .open-mobile-nav-background.show{
-            display: block;
         }
         .nav-links ul{
             flex-direction: column;
@@ -219,13 +229,17 @@ header{
         }
         .open-mobile-nav-background{
             display: none;
-            position: fixed;
+            position: absolute;
             top: 0;
-            right: 0;
-            height: 100vh;
+            left: 0;
+            height: 100%;
             width: 100vw;
             background: black;
-            opacity: 0.3;
+            opacity: 0.4;
+            z-index: 2;
+        }
+        .open-mobile-nav-background.show{
+            display: block;
         }
         .nav-buttons .profile img{
             max-width: 1.5rem;
@@ -303,7 +317,7 @@ header{
 
     //this are the basic css for layout now here are css for functional things note that nav is done above here are css for carosel etc
     .item-section{
-        overflow: hidden;
+        // overflow: hidden;
         .item-img-carosel {
             display: flex;
             // height: 100%;

@@ -249,6 +249,17 @@ header {
             flex-grow: 2;
     color: white;
   }
+  .desktop-carosel {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  .desktop-carosel .item-img-carosel {
+    max-width: 40vw;
+  }
+  .desktop-carosel .item-img-carosel img {
+    max-width: 100%;
+  }
   .item-section .item-img {
     overflow: hidden;
   }
@@ -261,7 +272,7 @@ header {
   nav .hamburger-menu {
     margin-right: 1rem;
     cursor: pointer;
-    z-index: 2;
+    z-index: 3;
   }
   nav .hamburger-menu .hamburger-bar {
     height: 0.1875rem;
@@ -289,19 +300,16 @@ header {
     position: fixed;
     top: 0;
     left: -150%;
-    height: 100vh;
+    height: 100%;
     width: 70vw;
     padding: 6rem 1.5rem;
     background: white;
-    z-index: 1;
+    z-index: 2;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
   }
   nav .nav-links.show {
     left: 0;
-  }
-  nav .open-mobile-nav-background.show {
-    display: block;
   }
   nav .nav-links ul {
     -webkit-box-orient: vertical;
@@ -318,13 +326,17 @@ header {
   }
   nav .open-mobile-nav-background {
     display: none;
-    position: fixed;
+    position: absolute;
     top: 0;
-    right: 0;
-    height: 100vh;
+    left: 0;
+    height: 100%;
     width: 100vw;
     background: black;
-    opacity: 0.3;
+    opacity: 0.4;
+    z-index: 2;
+  }
+  nav .open-mobile-nav-background.show {
+    display: block;
   }
   nav .nav-buttons .profile img {
     max-width: 1.5rem;
@@ -414,9 +426,6 @@ header {
         -ms-flex-direction: column;
             flex-direction: column;
     row-gap: 1rem;
-  }
-  .item-section {
-    overflow: hidden;
   }
   .item-section .item-img-carosel {
     display: -webkit-box;

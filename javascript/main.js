@@ -66,15 +66,22 @@ window.addEventListener('resize', ()=>{
 //for desktop product interface
 
 const thumbnailImg = document.querySelectorAll('.thumbnail-item-img img');
-var newCounter;
-for(i=0; i<thumbnailImg.length; i++){
-    thumbnailImg[i].addEventListener('click', ()=>{
-        if(counter >= caroselImg.length-1) return;
-        caroselSlide.classList.add('transition');
-        counter= i+1;
+
+function thumbnailClick(numberOfImage){
+    thumbnailImg[numberOfImage-1].addEventListener('click', ()=>{
+        // if(counter >= caroselImg.length-1) return;
+        let size = caroselImg[0].clientWidth;
+        counter= numberOfImage;
         caroselSlide.style.transform = 'translateX('+(-size*counter)+'px)';
-    })
+    });
 }
+for(i=1; i <= thumbnailImg.length; i++){
+    thumbnailClick(i);
+}
+
+
+
+
 
 
 
