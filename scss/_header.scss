@@ -159,6 +159,7 @@ header{
     }
     //secondary carosel
     .secondary-carosel{
+        display: none;
         position: fixed;
         top: 0;
         right: 0;
@@ -166,7 +167,7 @@ header{
         min-height: 100%;
         background: hsla(0,0,0,0.6);
         .item-carosel{
-            max-width: 40vw;
+            max-width: 30vw;
             position: relative;
             display: flex;
             flex-direction: column;
@@ -180,6 +181,12 @@ header{
         .item-img img{
             max-width: 100%;
             border-radius: 0.5625rem;
+        }
+        .container .img-wrapper{
+            margin-left: 0.5rem;
+        }
+        .container .img-wrapper:first-child{
+            margin: 0;
         }
         .previous-button,.next-button{
             position: absolute;
@@ -218,15 +225,44 @@ header{
             top: -2rem;
             right: 0;
         }
-        .closeButton img{
+        .closeButton svg{
             width: 1rem;
             height: auto;
+            cursor: pointer;
         }
+        .closeButton svg path{
+            fill: white;
+        }
+    }
+    .secondary-carosel.show{
+        display: flex;
+    }
+    .secondary-carosel .item-img-carosel.item-img-carosel.transition{
+        transition: all 0.4s ease-in-out;
     }
     
 
+    
 
 }
+//effects
+
+
+.thumbnail-item-img .img-wrapper.click{
+    border: 2px solid $orange;
+    border-radius: 0.625rem;
+}
+.thumbnail-item-img img.click{
+    opacity: 0.4;
+}
+
+
+.closeButton:hover svg path{
+    fill: $orange
+}
+
+
+
 
 //for mobile
 //
@@ -234,6 +270,9 @@ header{
 
 @media only screen and (max-width: 67.5rem){
     //for mobile nav bar
+    .secondary-carosel{
+        display: none;
+    }
     nav{
         padding: 1.5rem;
         .hamburger-menu{

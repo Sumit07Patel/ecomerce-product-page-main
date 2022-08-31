@@ -253,6 +253,7 @@ header {
     overflow: hidden;
   }
   .secondary-carosel {
+    display: none;
     position: fixed;
     top: 0;
     right: 0;
@@ -261,7 +262,7 @@ header {
     background: rgba(0, 0, 0, 0.6);
   }
   .secondary-carosel .item-carosel {
-    max-width: 40vw;
+    max-width: 30vw;
     position: relative;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -280,6 +281,12 @@ header {
   .secondary-carosel .item-img img {
     max-width: 100%;
     border-radius: 0.5625rem;
+  }
+  .secondary-carosel .container .img-wrapper {
+    margin-left: 0.5rem;
+  }
+  .secondary-carosel .container .img-wrapper:first-child {
+    margin: 0;
   }
   .secondary-carosel .previous-button, .secondary-carosel .next-button {
     position: absolute;
@@ -318,13 +325,42 @@ header {
     top: -2rem;
     right: 0;
   }
-  .secondary-carosel .closeButton img {
+  .secondary-carosel .closeButton svg {
     width: 1rem;
     height: auto;
+    cursor: pointer;
+  }
+  .secondary-carosel .closeButton svg path {
+    fill: white;
+  }
+  .secondary-carosel.show {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .secondary-carosel .item-img-carosel.item-img-carosel.transition {
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
   }
 }
 
+.thumbnail-item-img .img-wrapper.click {
+  border: 2px solid #ff7d1a;
+  border-radius: 0.625rem;
+}
+
+.thumbnail-item-img img.click {
+  opacity: 0.4;
+}
+
+.closeButton:hover svg path {
+  fill: #ff7d1a;
+}
+
 @media only screen and (max-width: 67.5rem) {
+  .secondary-carosel {
+    display: none;
+  }
   nav {
     padding: 1.5rem;
   }
