@@ -249,19 +249,78 @@ header {
             flex-grow: 2;
     color: white;
   }
-  .desktop-carosel {
-    position: fixed;
-    top: 0;
-    left: 0;
-  }
-  .desktop-carosel .item-img-carosel {
-    max-width: 40vw;
-  }
-  .desktop-carosel .item-img-carosel img {
-    max-width: 100%;
-  }
   .item-section .item-img {
     overflow: hidden;
+  }
+  .secondary-carosel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    min-height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+  }
+  .secondary-carosel .item-carosel {
+    max-width: 40vw;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .secondary-carosel .item-img {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+  .secondary-carosel .item-img img {
+    max-width: 100%;
+    border-radius: 0.5625rem;
+  }
+  .secondary-carosel .previous-button, .secondary-carosel .next-button {
+    position: absolute;
+    top: 50%;
+  }
+  .secondary-carosel .thumbnail-item-img {
+    max-width: 100%;
+  }
+  .secondary-carosel .thumbnail-item-img img {
+    width: 5rem;
+    margin-left: 0.5rem;
+    border-radius: 0.625rem;
+  }
+  .secondary-carosel .thumbnail-item-img img:first-child {
+    margin: 0;
+  }
+  .secondary-carosel .previous-button, .secondary-carosel .next-button {
+    position: absolute;
+    top: 40%;
+    bottom: auto;
+    height: 2.5rem;
+    width: 2.5rem;
+    background: white;
+    cursor: pointer;
+    border-radius: 100%;
+    z-index: 2;
+  }
+  .secondary-carosel .previous-button {
+    left: -1.3rem;
+  }
+  .secondary-carosel .next-button {
+    right: -1.3rem;
+  }
+  .secondary-carosel .closeButton {
+    position: absolute;
+    top: -2rem;
+    right: 0;
+  }
+  .secondary-carosel .closeButton img {
+    width: 1rem;
+    height: auto;
   }
 }
 

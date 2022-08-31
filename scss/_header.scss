@@ -149,24 +149,78 @@ header{
         color: white;
     }
 
-    //desktop carosel
-    .desktop-carosel{
-        position: fixed;
-        top: 0;
-        left: 0;
-        .item-img-carosel{
-            max-width: 40vw;
-        }
-        .item-img-carosel img{
-            max-width: 100%;
-        }
-    }
 
     //for desktop functionalities
 
     .item-section{
         .item-img{
             overflow: hidden;
+        }
+    }
+    //secondary carosel
+    .secondary-carosel{
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100vw;
+        min-height: 100%;
+        background: hsla(0,0,0,0.6);
+        .item-carosel{
+            max-width: 40vw;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .item-img{
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        .item-img img{
+            max-width: 100%;
+            border-radius: 0.5625rem;
+        }
+        .previous-button,.next-button{
+            position: absolute;
+            top: 50%;
+        }
+        .thumbnail-item-img{
+            max-width: 100%;
+        }
+        .thumbnail-item-img img{
+            width: 5rem;
+            margin-left: 0.5rem;
+            border-radius: 0.625rem;
+        }
+        .thumbnail-item-img img:first-child{
+            margin: 0;
+        }
+        .previous-button, .next-button{
+            position: absolute;
+            top: 40%;
+            bottom: auto;
+            height: 2.5rem;
+            width: 2.5rem;
+            background: white;
+            cursor: pointer;
+            border-radius: 100%;
+            z-index: 2;
+        }
+        .previous-button{
+            left: -1.3rem;
+        }
+        .next-button{
+            right: -1.3rem;
+        }
+        .closeButton{
+            position: absolute;
+            top: -2rem;
+            right: 0;
+        }
+        .closeButton img{
+            width: 1rem;
+            height: auto;
         }
     }
     

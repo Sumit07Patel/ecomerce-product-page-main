@@ -12,20 +12,11 @@ hamburgerMenu.addEventListener("click", ()=>{
         hamburgerBar[i].classList.toggle('close-menu');
     }
 })
+let counter = 1;
 
-
-
-//for the carosel
-
-
-
-const caroselSlide = document.querySelector('.item-img-carosel');
-const caroselImg = document.querySelectorAll('.item-img-carosel img');
-const previousButton = document.querySelector('.previous-button');
-const nextButton = document.querySelector('.next-button');
-
-function carosel(){
-    let counter = 1;
+//we have two carosel so i have decided to use one function to run carosel so that i dont need to type every thing again
+//function for carosel
+function carosel(caroselSlide,caroselImg,previousButton,nextButton){
     let size = caroselImg[0].clientWidth;
     caroselSlide.style.transform = 'translateX('+(-size*counter)+'px)';
 
@@ -56,28 +47,59 @@ function carosel(){
     })
      return 0;
 }
-carosel();
+//for the thumbnailimg functionalitiy
+function clickOnThumbnailImg(thumbnailImg,caroselSlide,caroselImg){
+    function thumbnailClick(numberOfImage){
+        thumbnailImg[numberOfImage-1].addEventListener('click', ()=>{
+            // if(counter >= caroselImg.length-1) return;
+            let size = caroselImg[0].clientWidth;
+            counter= numberOfImage;
+            caroselSlide.style.transform = 'translateX('+(-size*counter)+'px)';
+        });
+    }
+    for(i=1; i <= thumbnailImg.length; i++){
+        thumbnailClick(i);
+    }
+}
+
+//required values for mainCarosel
+const mainCaroselSlide = document.querySelector('.item-section .item-img-carosel');
+const mainCaroselImg = document.querySelectorAll('.item-section .item-img-carosel img');
+const mainPreviousButton = document.querySelector('.item-section .previous-button');
+const mainNextButton = document.querySelector('.item-section .next-button');
+const mainThumbnailImg = document.querySelectorAll('.item-section .thumbnail-item-img img');
+
+//calling the function
+carosel(mainCaroselSlide,mainCaroselImg,mainPreviousButton,mainNextButton);
+clickOnThumbnailImg(mainThumbnailImg,mainCaroselSlide,mainCaroselImg);
+
+//i was having the bug when the size is chaged so i called the function whenevre size is changed
 
 //When the screen size is changed
 window.addEventListener('resize', ()=>{
-    carosel();
+    carosel(mainCaroselSlide,mainCaroselImg,mainPreviousButton,mainNextButton);
+    clickOnThumbnailImg(mainThumbnailImg,mainCaroselSlide,mainCaroselImg);
 })
 
-//for desktop product interface
 
-const thumbnailImg = document.querySelectorAll('.thumbnail-item-img img');
+//samething for secondary carosel
+const secondaryCaroselSlide = document.querySelector('.secondary-carosel .item-img-carosel');
+const secondaryCaroselImg = document.querySelectorAll('.secondary-carosel .item-img-carosel img');
+const secondaryPreviousButton = document.querySelector('.secondary-carosel .previous-button');
+const secondaryNextButton = document.querySelector('.secondary-carosel .next-button');
+const secondaryThumbnailImg = document.querySelectorAll('.secondary-carosel .thumbnail-item-img img');
 
-function thumbnailClick(numberOfImage){
-    thumbnailImg[numberOfImage-1].addEventListener('click', ()=>{
-        // if(counter >= caroselImg.length-1) return;
-        let size = caroselImg[0].clientWidth;
-        counter= numberOfImage;
-        caroselSlide.style.transform = 'translateX('+(-size*counter)+'px)';
-    });
-}
-for(i=1; i <= thumbnailImg.length; i++){
-    thumbnailClick(i);
-}
+//calling the function
+carosel(secondaryCaroselSlide,secondaryCaroselImg,secondaryPreviousButton,secondaryNextButton);
+clickOnThumbnailImg(secondaryThumbnailImg,secondaryCaroselSlide,secondaryCaroselImg);
+
+//When the screen size is changed
+window.addEventListener('resize', ()=>{
+    carosel(secondaryCaroselSlide,secondaryCaroselImg,mainPreviousButton,secondaryNextButton);
+    clickOnThumbnailImg(secondaryThumbnailImg,secondaryCaroselSlide,mainCaroselImg);
+})
+
+
 
 
 
