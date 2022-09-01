@@ -40,10 +40,14 @@ header{
 //cart menu
 nav{
     .cart-menu{
+        display: none;
         width: 100vw;
         position: absolute;
         top: 4.75rem;
         right: 0;
+    }
+    .cart-menu.show{
+        display: flex;
     }
     .cart-menu .wrapper{
         width: 90vw;
@@ -89,12 +93,19 @@ nav{
         .current-price, .into, .number-of-items{
             @include font(500,$medium-mobile,$dark-grayish-blue);
         }
+        .into, .number-of-items, .number-of-items{
+            margin-left: 0.2rem
+        }
+        .purchase-amount{
+            margin-left: 0.325rem
+        }
     }
     .purchase-amount{
         @include font(700,$medium-mobile,$very-dark-blue);
     }
     .remove-purchase-item{
         margin-left: auto;
+        cursor: pointer;
     }
     .checkout-button button{
         width: 100%;

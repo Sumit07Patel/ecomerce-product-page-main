@@ -149,6 +149,13 @@ const closeButton = document.querySelector('.secondary-carosel .closeButton');
 closeButton.addEventListener('click', ()=>{
     secondaryCarosel.classList.remove('show');
 })
+//toggle cart menu wih nav addtocart button
+const navAddToCart = document.querySelector('.nav-buttons .cart svg');
+const cartMenu = document.querySelector('.nav-buttons .cart-menu');
+navAddToCart.addEventListener('click', ()=>{
+    cartMenu.classList.toggle('show');
+})
+
 
 //for cart 
 const addToCartButton = document.querySelector('#addToCartButton');
@@ -159,6 +166,11 @@ const addItems = document.querySelector('#plusItemNumbers');
 const removeItems = document.querySelector('#minusItemNumbers');
 const emptyCartMenu = document.querySelector('.empty-cart');
 const purchaseItems = document.querySelector('.purchase-items');
+const price = 125;
+const currentPriceOnButton = document.querySelectorAll('#current-price h3')[1];
+const currentPriceOnCart = document.querySelector('.purchase-item-price .current-price');
+const numberOfItemsOnCart = document.querySelector('.purchase-item-price .number-of-items');
+const purchaseAmountOnCart = document.querySelector('.purchase-amount');
 
 addItems.addEventListener('click', ()=>{
     numberOfItemsCounter++;
@@ -170,19 +182,29 @@ removeItems.addEventListener('click', ()=>{
         numberOfItems.innerText = numberOfItemsCounter;
     }
 })
+currentPriceOnCart.innerText = currentPriceOnCart.innerText+price;
+currentPriceOnButton.innerText = price;
 let totalItems = 0;
-totalItems = totalItems+numberOfItemsCounter;
 addToCartButton.addEventListener('click', ()=>{
     cartItems.classList.add('show')
     cartItems.innerText = numberOfItems.innerText;
     if(numberOfItemsCounter>0){
         emptyCartMenu.style.display='none';
         purchaseItems.style.display = 'flex';
-    }
+        numberOfItemsOnCart.innerText = numberOfItemsCounter;
+        purchaseAmountOnCart.innerText = price*numberOfItemsCounter;
+        }
     else{
         emptyCartMenu.style.display='flex';
         purchaseItems.style.display = 'none';
     }
+    totalItems = totalItems+numberOfItemsCounter;
+})
+
+const deleteButton = document.querySelector('.remove-purchase-item');
+deleteButton.addEventListener('click', ()=>{
+        emptyCartMenu.style.display='flex';
+        purchaseItems.style.display = 'none';
 })
 
 

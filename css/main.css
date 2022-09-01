@@ -116,10 +116,17 @@ header {
 }
 
 nav .cart-menu {
+  display: none;
   width: 100vw;
   position: absolute;
   top: 4.75rem;
   right: 0;
+}
+
+nav .cart-menu.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 nav .cart-menu .wrapper {
@@ -191,6 +198,14 @@ nav .purchase-item-price .current-price, nav .purchase-item-price .into, nav .pu
   color: #68707d;
 }
 
+nav .purchase-item-price .into, nav .purchase-item-price .number-of-items, nav .purchase-item-price .number-of-items {
+  margin-left: 0.2rem;
+}
+
+nav .purchase-item-price .purchase-amount {
+  margin-left: 0.325rem;
+}
+
 nav .purchase-amount {
   font-family: 'Kumbh Sans', sans-serif;
   font-weight: 700;
@@ -200,6 +215,7 @@ nav .purchase-amount {
 
 nav .remove-purchase-item {
   margin-left: auto;
+  cursor: pointer;
 }
 
 nav .checkout-button button {
