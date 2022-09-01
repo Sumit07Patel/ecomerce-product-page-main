@@ -75,10 +75,10 @@ function carosel(caroselSlide,caroselImg,previousButton,nextButton,thumbnailImg,
             thumbnailClick(i);
         }
     }
-    clickOnThumbnailImg(thumbnailImg,caroselSlide, caroselImg);
-    console.log(counter);
-    //looping when transition end
-    caroselSlide.addEventListener('transitionend', ()=>{
+     clickOnThumbnailImg(thumbnailImg,caroselSlide, caroselImg);
+     console.log(counter);
+     //looping when transition end
+     caroselSlide.addEventListener('transitionend', ()=>{
         if(caroselImg[counter].id === lastClone){
             caroselSlide.classList.remove('transition');
             counter = caroselImg.length - 2;
@@ -89,7 +89,7 @@ function carosel(caroselSlide,caroselImg,previousButton,nextButton,thumbnailImg,
             counter = caroselImg.length - counter;
             caroselSlide.style.transform = 'translateX('+(-size*counter)+'px)';
         }
-    })
+     })
     
 
      return 0;
@@ -113,7 +113,7 @@ carosel(mainCaroselSlide,mainCaroselImg,mainPreviousButton,mainNextButton,mainTh
 
 //When the screen size is changed
 window.addEventListener('resize', ()=>{
-    carosel(mainCaroselSlide,mainCaroselImg,mainPreviousButton,mainNextButton,mainThumbnailImg);
+    carosel(mainCaroselSlide,mainCaroselImg,mainPreviousButton,mainNextButton,mainThumbnailImg,mainLastClone,mainFirstClone);
 })
 
 
@@ -127,11 +127,11 @@ const secondaryFirstClone = 'secondaryFirstClone';
 const secondaryLastClone = 'secondaryLastClone';
 
 //calling the function
-carosel(secondaryCaroselSlide,secondaryCaroselImg,secondaryPreviousButton,secondaryNextButton,secondaryThumbnailImg);
+carosel(secondaryCaroselSlide,secondaryCaroselImg,mainPreviousButton,secondaryNextButton,secondaryThumbnailImg,secondaryFirstClone,secondaryLastClone);
 
 //When the screen size is changed
 window.addEventListener('resize', ()=>{
-    carosel(secondaryCaroselSlide,secondaryCaroselImg,mainPreviousButton,secondaryNextButton,secondaryThumbnailImg,secondaryFirstClone,secondaryLastClone);
+    carosel(secondaryCaroselSlide,secondaryCaroselImg,secondaryPreviousButton,secondaryNextButton,secondaryThumbnailImg,secondaryFirstClone,secondaryLastClone);
 })
 
 
@@ -149,6 +149,44 @@ const closeButton = document.querySelector('.secondary-carosel .closeButton');
 closeButton.addEventListener('click', ()=>{
     secondaryCarosel.classList.remove('show');
 })
+
+//for cart 
+const addToCartButton = document.querySelector('#addToCartButton');
+const numberOfItems = document.querySelector('#numberOfItems');
+const cartItems = document.querySelector('.cart-items');
+let numberOfItemsCounter = 0;
+const addItems = document.querySelector('#plusItemNumbers');
+const removeItems = document.querySelector('#minusItemNumbers');
+const emptyCartMenu = document.querySelector('.empty-cart');
+const purchaseItems = document.querySelector('.purchase-items');
+
+addItems.addEventListener('click', ()=>{
+    numberOfItemsCounter++;
+    numberOfItems.innerText = numberOfItemsCounter;
+})
+removeItems.addEventListener('click', ()=>{
+    if(numberOfItemsCounter > 0){
+        numberOfItemsCounter--;
+        numberOfItems.innerText = numberOfItemsCounter;
+    }
+})
+let totalItems = 0;
+totalItems = totalItems+numberOfItemsCounter;
+addToCartButton.addEventListener('click', ()=>{
+    cartItems.classList.add('show')
+    cartItems.innerText = numberOfItems.innerText;
+    if(numberOfItemsCounter>0){
+        emptyCartMenu.style.display='none';
+        purchaseItems.style.display = 'flex';
+    }
+    else{
+        emptyCartMenu.style.display='flex';
+        purchaseItems.style.display = 'none';
+    }
+})
+
+
+
 
 
 

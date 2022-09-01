@@ -19,9 +19,98 @@ header{
     .nav-buttons .cart svg path{
         fill: $dark-grayish-blue;
     }
+    .cart{
+        position: relative;
+        cursor: pointer;
+    }
+    .cart .cart-items{
+        position: absolute;
+        display: none;
+        top: -8px;
+        right: -10px;
+        @include font(700,10px,white);
+        padding: 0.125rem 0.425rem;
+        border-radius: 0.5625rem;
+        background: $orange;
+    }
+    .cart .cart-items.show{
+        display: block
+    }
 }
-// for item-section 
+//cart menu
+nav{
+    .cart-menu{
+        width: 100vw;
+        position: absolute;
+        top: 4.75rem;
+        right: 0;
+    }
+    .cart-menu .wrapper{
+        width: 90vw;
+        background: white;
+        border-radius: 0.8rem;
+        box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.40);
+        z-index: 5;
+    }
+    .cart-menu h3{
+        padding: 1.5rem 1.5rem;
+        @include font(700,$medium-mobile,$very-dark-blue);
+        border-bottom: 1px solid $light-grayish-blue;
+    }
+    .cart-menu .empty-cart{
+        padding: 5rem 1.5rem;
+    }
+    .cart-menu .empty-cart p{
+        @include font(700,$medium-mobile,$dark-grayish-blue);
+    }
+    .purchase-items{
+        padding: 1.5rem;
+        display: none;
+        .purchase-item-img img{
+            max-width: 3.125rem;
+            border-radius: 0.625rem;
+        }
+    }
+    .purchase-item-details{
+        margin-bottom: 1.5rem;
+    }
+    .purchase-items .checkout-button{
+        width: 100%;
+    }
+    .purchase-item-discription{
+        justify-content: space-between;
+        margin-left: 2rem
+    }
+    .purchase-item-name{
+        @include font(500,$medium-mobile,$dark-grayish-blue);
+        margin-bottom: 0.4rem;
+    }
+    .purchase-item-price{
+        .current-price, .into, .number-of-items{
+            @include font(500,$medium-mobile,$dark-grayish-blue);
+        }
+    }
+    .purchase-amount{
+        @include font(700,$medium-mobile,$very-dark-blue);
+    }
+    .remove-purchase-item{
+        margin-left: auto;
+    }
+    .checkout-button button{
+        width: 100%;
+        border: none;
+        border-radius: 0.6rem;
+        background: $orange;
+        padding: 1.125rem 0;
+        @include font(700,$medium-mobile,white); 
+        cursor: pointer;
+    }
+    .checkout-button button:active{
+        background: $dark-orange;
+    }
+}
 
+// for item-section 
 #discount{
     @include font(700,$small,$dark-orange);
     padding: 0.375rem 0.5rem;
@@ -45,6 +134,7 @@ header{
     box-shadow: 0px 14px 35px -12px rgba(255, 125, 27, 0.6);
     border-radius: 9px;
     color: white;
+    cursor: pointer;
     svg{
         margin-right: 1rem;
         
@@ -56,6 +146,9 @@ header{
         @include font(700,$small,white)
     }
 
+}
+#addToCartButton:hover{
+    background: $dark-orange;
 }
 #numberOfItem{
     background: $very-light-grayish-blue;
@@ -81,10 +174,21 @@ header{
         .nav-links ul li{
             margin-left: 2.125rem;
         }
+        .nav-links ul li:hover{
+            color: $very-dark-blue;
+        }
         .nav-buttons .profile img{
             max-height: 3.125rem;
             width: auto;
             margin-left: 2.875rem;
+        }
+        .nav-buttons{
+            position: relative;
+        }
+        .cart-menu{
+            max-width: 23.4375rem;
+            top: 4rem;
+            right: 0;
         }
     }
     .item-section{
@@ -320,6 +424,9 @@ header{
             @include font(700,$medium-mobile,$very-dark-blue);
             margin-bottom: 2rem;
         }
+        .nav-links ul li:hover{
+            @include font(500,$smallest-mobile,$dark-grayish-blue);
+        }
         .open-mobile-nav-background{
             display: none;
             position: absolute;
@@ -428,7 +535,10 @@ header{
     
 
 }
-
+//bugs
+#current-price h3:first-child{
+    margin-right: 0 !important;
+}
 
 
 
