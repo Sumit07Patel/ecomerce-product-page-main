@@ -186,19 +186,19 @@ currentPriceOnCart.innerText = currentPriceOnCart.innerText+price;
 currentPriceOnButton.innerText = price;
 let totalItems = 0;
 addToCartButton.addEventListener('click', ()=>{
+    totalItems = totalItems+numberOfItemsCounter;
     cartItems.classList.add('show')
-    cartItems.innerText = numberOfItems.innerText;
+    cartItems.innerText = totalItems;
     if(numberOfItemsCounter>0){
         emptyCartMenu.style.display='none';
         purchaseItems.style.display = 'flex';
-        numberOfItemsOnCart.innerText = numberOfItemsCounter;
-        purchaseAmountOnCart.innerText = price*numberOfItemsCounter;
+        numberOfItemsOnCart.innerText = totalItems;
+        purchaseAmountOnCart.innerText = '$'+price*totalItems;
         }
     else{
         emptyCartMenu.style.display='flex';
         purchaseItems.style.display = 'none';
     }
-    totalItems = totalItems+numberOfItemsCounter;
 })
 
 const deleteButton = document.querySelector('.remove-purchase-item');
