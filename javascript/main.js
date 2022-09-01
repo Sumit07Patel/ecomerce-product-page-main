@@ -61,14 +61,14 @@ function carosel(caroselSlide,caroselImg,previousButton,nextButton,thumbnailImg,
                 console.log(counter);
                 caroselSlide.style.transform = 'translateX('    +(-size*counter)+'px)';
                 caroselSlide.classList.add('transition');
-                for(j=0; j<thumbnailImg.length; j++){
-                    thumbnailImg[j].classList.remove('click');
-                    imgWapper[j].classList.remove('click');
-                }
-                if(counter<=thumbnailImg.length){
-                    thumbnailImg[counter-1].classList.add('click');
-                    imgWapper[counter-1].classList.add('click');
-                }
+                // for(j=0; j<thumbnailImg.length; j++){
+                //     thumbnailImg[j].classList.remove('click');
+                //     imgWapper[j].classList.remove('click');
+                // }
+                // if(counter<=thumbnailImg.length){
+                //     thumbnailImg[counter-1].classList.add('click');
+                //     imgWapper[counter-1].classList.add('click');
+                // }
             });
         }
         for(i=1; i <= thumbnailImg.length; i++){
@@ -201,11 +201,14 @@ addToCartButton.addEventListener('click', ()=>{
         purchaseItems.style.display = 'none';
     }
 })
-
+//delete button
 const deleteButton = document.querySelector('.remove-purchase-item');
 deleteButton.addEventListener('click', ()=>{
         emptyCartMenu.style.display='flex';
         purchaseItems.style.display = 'none';
+        cartItems.innerText = '';
+        cartItems.classList.remove('show');
+        totalItems = 0;
 })
 
 
