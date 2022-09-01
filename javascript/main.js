@@ -127,7 +127,7 @@ const secondaryFirstClone = 'secondaryFirstClone';
 const secondaryLastClone = 'secondaryLastClone';
 
 //calling the function
-carosel(secondaryCaroselSlide,secondaryCaroselImg,mainPreviousButton,secondaryNextButton,secondaryThumbnailImg,secondaryFirstClone,secondaryLastClone);
+
 
 //When the screen size is changed
 window.addEventListener('resize', ()=>{
@@ -140,6 +140,7 @@ window.addEventListener('resize', ()=>{
 const secondaryCarosel = document.querySelector('.secondary-carosel');
 mainCaroselSlide.addEventListener('click', ()=>{
     secondaryCarosel.classList.add('show');
+    carosel(secondaryCaroselSlide,secondaryCaroselImg,mainPreviousButton,secondaryNextButton,secondaryThumbnailImg,secondaryFirstClone,secondaryLastClone);
 })
 
 //closing secondary carosel
